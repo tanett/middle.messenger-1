@@ -1,0 +1,21 @@
+<main class="profile">
+    <section class="profile__goBack">
+        <a class="profile__goBackBtn" href="/"></a>
+    </section>
+    <section class="profile__container">
+        <div class="avatar profile__avatar">
+<!--            <image class="profile__img" href="#" alt="avatar"></image>-->
+        </div>
+        <h1 class="profile__title">{{name}}</h1>
+        <ul class="profile__fields">
+            {{#each fieldList}}
+                <li class="profile__fieldsItem"><span class="profile__fieldsItemName">{{this.name}}</span><span class="profile__fieldsItemValue">{{this.value}}</span></li>
+            {{/each}}
+        </ul>
+        <ul class="profile__btnBlock">
+            {{#each btnList}}
+                <li class="profile__fieldsItem"><span class=" {{this.classNames}}">{{this.text}}</span></li>
+            {{/each}}
+        </ul>
+    </section>
+</main>
