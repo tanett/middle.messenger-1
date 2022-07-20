@@ -3,6 +3,9 @@ import SignIn from './pages/signIn/signIn.js';
 import DefaultComponentsTmpl from './components/defaultComponents/defaultComponents.hbs';
 import SignUp from './pages/signUp/signUp';
 import Profile from './pages/profile/Profile';
+import NotFoundPage from './pages/404/NotFoundPage';
+import ServerError500 from './pages/500/ServerError500.';
+import ChatList from './pages/chatList/ChatList';
 
 const App = () => {
 
@@ -19,7 +22,7 @@ const App = () => {
             break
         }
         case '/chatList':{
-            component = 'chatList'
+            component = ChatList()
             break
         }
         case '/profile':{
@@ -27,11 +30,11 @@ const App = () => {
             break
         }
         case '/notFound':{
-            component = '404 not found'
+            component = NotFoundPage()
             break
         }
         case '/error':{
-            component = 'error 500'
+            component = ServerError500()
             break
         }
         default: {
