@@ -5,24 +5,26 @@
             <input id="search" name="search" class="chats__inputSearch" placeholder="Поиск"/>
         </div>
         <div class="chats__chatsListContainer">
-            <div class="chatItem">
-                <div class="chatItem__wrapper">
-                    <div class="chatItem__avatar">
-
-                    </div>
-                    <div class="chatItem__info">
-                        <h3 class="chatItem__name">fffffffflk kkkkkkkkkkkkkkkkkkkkkkkk kf</h3>
-                        <p class="chatItem__message">jjjjjjjjjjj jjjjjjjjkkkkkkkkk kkkkkkkkkkkkkk kkkkkkkkkkkk kkkkkkkkkkkkkkk j jjjjjjjjjjjj jjjjjjjjjjjj jjjjjjjjjjjjj jjjjjjjjjj jjjjjjjjj jjjjjj jjjjjjjjjjjj jjjjj </p>
-                    </div>
-                    <div class="chatItem__metaData">
-                        <p class="chatItem__date">15:58</p>
-                        <p class="chatItem__notify">5</p>
-                    </div>
-                </div>
-            </div>
+            {{chatsList}}
         </div>
     </section>
     <section class="chats__messagesContainer">
-
+        <div class="messagesContainer__chatInfo">
+            <div class="messagesContainer__chatInfoWrapper">
+                <div class="messagesContainer__chatAvatar"></div>
+                <div class="messagesContainer__chatName"></div>
+            </div>
+            <div class="messagesContainer__chatActions">
+            </div>
+        </div>
+      <div class="messagesList">
+          <div class="messagesList__date"></div>
+         {{messageList}}
+      </div>
+        <div class="messagesContainer__inputContainer">
+            <div class="inputContainer__addSomething"></div>
+            <input id="inputMessage" name="inputMessages" class="inputContainer__input" maxlength="250" />
+            <button class="inputContainer__submitBtn"></button>
+        </div>
     </section>
 </main>

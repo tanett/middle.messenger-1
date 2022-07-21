@@ -153,6 +153,10 @@ display: flex;
     background: #fff;
     flex-grow: 1;
     height: 100%;
+    display: grid;
+    grid-template-rows: 54px 1fr 54px;
 }
+
+
 
 
