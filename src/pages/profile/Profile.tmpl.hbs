@@ -8,8 +8,8 @@
         </div>
         <h1 class="profile__title">{{name}}</h1>
         <ul class="profile__fields">
-            {{#each fieldList}}
-                <li class="profile__fieldsItem"><span class="profile__fieldsItemName">{{this.name}}</span><span class="profile__fieldsItemValue">{{this.value}}</span></li>
+            {{#each inputs}}
+                <li class="profile__fieldsItem">{{{this}}}</li>
             {{/each}}
         </ul>
         <ul class="profile__btnBlock">

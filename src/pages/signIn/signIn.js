@@ -20,7 +20,7 @@ const inputList = [
 
 
     const content = SignInTmpl({ func: onSubmit ,
-        btnPr: Button("Авторизоваться", "button_primary"),
+        btnPr: Button("Войти", "button_primary"),
         fieldset: Fieldset(inputList, "signIn_fieldset")
     })
 

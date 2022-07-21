@@ -23,7 +23,7 @@ display: block;
     text-align: right;
     color: #999999;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 .chats__profileLink:hover {
     color: #6b6868;
@@ -69,84 +69,6 @@ height: calc(100vh - 110px);
     overflow-y: auto;
 }
 
-.chatItem {
-
-    height: 70px;
-    border-top: 1px solid #eaeaea;
-    padding: 2px 0;
-}
-
-.chatItem__wrapper {
-    padding: 10px 0;
-    display: grid;
-    grid-template-columns:1fr 193px 1fr;
-
-  gap: 10px;
-}
-
-.chatItem__avatar {
-  width: 47px;
-  height: 47px;
-  background: #EFEFEF;
-  border-radius: 50%;
-}
-
-.chatItem__info {
-    max-width: 193px;
-}
-
-.chatItem__name {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 13px;
-  color: #1E1E1E;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 4px;
-}
-
-.chatItem__message {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
-    height: 30px;
-  color: #999999;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.chatItem__metaData{
-display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: end;
-}
-.chatItem__date {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 9px;
-    line-height: 13px;
-    text-align: right;
-    color: #999999;
-}
-.chatItem__notify {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #3369F3;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 12px;
-
-    color: #FFFFFF;
-    display: flex;
-    place-content: center;
-    align-items: center;
-}
 
 /*-------------------------right panel------------------------------*/
 .chats__messagesContainer {
@@ -155,8 +77,122 @@ display: flex;
     height: 100%;
     display: grid;
     grid-template-rows: 54px 1fr 54px;
+    padding: 0 20px;
+}
+/*-------------------------chat info------------------------------*/
+.messagesContainer__chatInfo {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 10px 10px 0 0;
 }
 
+.messagesContainer__chatInfoWrapper {
+display: flex;
+    align-items: center;
+}
 
+.messagesContainer__chatAvatar{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #EFEFEF;
+    margin-right: 10px;
+}
 
+.messagesContainer__chatName {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 13px;
+   color: #1E1E1E;
+}
 
+.messagesContainer__chatActions {
+    height: 15px;
+    width: 3px;
+    align-self: center;
+cursor: pointer;
+    background-image: url("../../image/vertical3Dots.svg");
+    background-repeat: no-repeat;
+}
+/*-------------------------input block------------------------------*/
+
+.messagesContainer__inputContainer {
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    border-top: 1px solid #EAEAEA;
+    padding: 10px 0;
+}
+.inputContainer__addSomething {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: none;
+    background-image: url("../../image/skrepka.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.inputContainer__addSomething:hover {
+    opacity: 1;
+    background-image: url("../../image/skrepkaBlue.svg");
+}
+
+.inputContainer__input {
+    flex-grow: 1;
+    background: #EFEFEF;
+    border-radius: 30px;
+    border: none;
+    padding: 10px 20px;
+}
+
+.inputContainer__input::placeholder {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+   color: #999999;
+}
+
+.inputContainer__input:active,.inputContainer__input:focus,.inputContainer__input:focus-visible {
+  border: none;
+    outline: none;
+}
+
+.inputContainer__submitBtn{
+    width: 28px;
+    height: 28px;
+   border-radius: 50%;
+    border:none;
+    background-image: url("../../image/arrowBlueRight.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.inputContainer__submitBtn:hover {
+    opacity: 0.8;
+}
+
+/*-------------------------message list------------------------------*/
+.messagesList {
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    overflow-y: auto;
+}
+
+.messagesList__date {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    color: #999999;
+    margin-top: 30px; /*  TODO change */
+}

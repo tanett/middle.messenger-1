@@ -3,6 +3,8 @@ import ProfileTmpl from './Profile.tmpl.hbs'
 
 import './style.css'
 
+import InputTextProfile from '../../components/InputTextProfile/InputTextProfile';
+
 export default function Profile() {
 
     const onGoBack =()=>{
@@ -10,14 +12,19 @@ export default function Profile() {
     }
 
     //profile data in component
-    const fieldList = [
-        {name:'Почта', value: 'pochta@yandex.ru'},
-        {name:'Логин', value: 'ivanivanov'},
-        {name:'Имя', value: ' Иван'},
-        {name:'Фамилия', value: 'Иванов'},
-        {name:'Имя в чате', value: 'Иван'},
-        {name:'Телефон', value: '+7 (909) 967 30 30'},
+
+    const inputsList = [
+        {id: 'email',name:'email',type: 'text',label:'Почта', placeholder: 'pochta@yandex.ru', errorMessage: ''},
+        {id: 'login',name:'login',type: 'text',label:'Логин', placeholder: 'Ivan', errorMessage: ''},
+        {id: 'first_name',name:'first_name',type: 'text',label:'Имя',  placeholder: 'Ivan', errorMessage: ''},
+        {id: 'second_name',name:'second_name',type: 'text',label:'Фамилия', placeholder: 'Ivanov', errorMessage: ''},
+        {id: 'display_name',name:'display_name',type: 'text',label:'Имя в чате', placeholder: 'vanya', errorMessage: ''},
+        {id: 'phone',name:'phone',label:'Почта',type: 'text',placeholder: '+79659959598', errorMessage: ''},
     ]
+
+    const inputs = inputsList.map(item=>{
+        return InputTextProfile(item.id,item.name,item.label, item.type, item.placeholder, item.errorMessage, )
+    })
 
 
 //btn in profile
@@ -29,7 +36,7 @@ export default function Profile() {
 
     const content = ProfileTmpl({
         func: onGoBack() ,
-        fieldList,
+        inputs,
         btnList,
         name: 'Иван'
 

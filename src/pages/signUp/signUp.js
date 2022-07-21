@@ -17,8 +17,8 @@ const onSubmit =()=>{
     const inputList = [
         {id:'email', name:'email', label:'Почта', type:'email', placeholder:'Почта', errorMessage:''},
         {id:'login', name:'login', label:'Логин', type:'text', placeholder:'Логин', errorMessage:''},
-        {id:'name', name:'name', label:'Имя', type:'text', placeholder:'Имя', errorMessage:''},
-        {id:'lastName', name:'lastName', label:'Фамилия', type:'text', placeholder:'Фамилия', errorMessage:''},
+        {id:'first_name', name:'first_name', label:'Имя', type:'text', placeholder:'Имя', errorMessage:''},
+        {id:'second_name', name:'second_name', label:'Фамилия', type:'text', placeholder:'Фамилия', errorMessage:''},
         {id:'phone', name:'phone', label:'Телефон', type:'text', placeholder:'Телефон', errorMessage:''},
         {id:'password', name:'password', label:'Пароль', type:'password', placeholder:'Пароль', errorMessage:''},
         {id:'passwordSubmit', name:'passwordSubmit', label:'Пароль(еще раз)', type:'password', placeholder:'Пароль', errorMessage:'error'},
@@ -26,7 +26,7 @@ const onSubmit =()=>{
 
 
     const content = SignUpTmpl({ func: onSubmit ,
-        btnPr: Button("Авторизоваться", "button_primary"),
+        btnPr: Button("Зарегестироваться", "button_primary"),
         fieldset: Fieldset(inputList, "signUp_fieldset")
     })
 
