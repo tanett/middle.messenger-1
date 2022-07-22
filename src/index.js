@@ -9,6 +9,10 @@ import ChatList from './pages/chatList/ChatList';
 
 const App = () => {
 
+    Handlebars.registerHelper('stringifyFunc', function(fn) {
+        return new Handlebars.SafeString("(" +
+            fn.toString().replace(/\"/g,"\'") + ")()");
+    });
 
     let component
 

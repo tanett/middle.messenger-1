@@ -550,6 +550,9 @@ var _serverError500Default = parcelHelpers.interopDefault(_serverError500);
 var _chatList = require("./pages/chatList/ChatList");
 var _chatListDefault = parcelHelpers.interopDefault(_chatList);
 const App = ()=>{
+    (0, _handlebarsDefault.default).registerHelper("stringifyFunc", function(fn) {
+        return new (0, _handlebarsDefault.default).SafeString("(" + fn.toString().replace(/\"/g, "'") + ")()");
+    });
     let component;
     switch(window.location.pathname){
         case "/signIn":
@@ -577,7 +580,7 @@ const App = ()=>{
 };
 document.querySelector("#root").innerHTML = App();
 
-},{"handlebars":"dH8Fg","./pages/signIn/signIn.js":"dcLUx","./components/defaultComponents/defaultComponents.hbs":"iPoX5","./pages/signUp/signUp":"aqBY0","@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh","./pages/profile/Profile":"lpRKa","./pages/404/NotFoundPage":"4DZmZ","./pages/500/ServerError500.":"fEsv4","./pages/chatList/ChatList":"dClUZ"}],"dH8Fg":[function(require,module,exports) {
+},{"handlebars":"dH8Fg","./pages/signIn/signIn.js":"dcLUx","./components/defaultComponents/defaultComponents.hbs":"iPoX5","./pages/signUp/signUp":"aqBY0","./pages/profile/Profile":"lpRKa","./pages/404/NotFoundPage":"4DZmZ","./pages/500/ServerError500.":"fEsv4","./pages/chatList/ChatList":"dClUZ","@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}],"dH8Fg":[function(require,module,exports) {
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */ // var local = handlebars.create();
@@ -12286,7 +12289,21 @@ const templateFunction = (0, _handlebarsDefault.default).template({
                     "column": 115
                 }
             }
-        }) : helper)) + '"/>\n    <p class="inputBlock_message">' + alias4((helper = (helper = lookupProperty(helpers, "errorMessage") || (depth0 != null ? lookupProperty(depth0, "errorMessage") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+        }) : helper)) + '" disabled=' + alias4((helper = (helper = lookupProperty(helpers, "disabled") || (depth0 != null ? lookupProperty(depth0, "disabled") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+            "name": "disabled",
+            "hash": {},
+            "data": data,
+            "loc": {
+                "start": {
+                    "line": 3,
+                    "column": 126
+                },
+                "end": {
+                    "line": 3,
+                    "column": 138
+                }
+            }
+        }) : helper)) + '/>\n    <p class="inputBlock_message">' + alias4((helper = (helper = lookupProperty(helpers, "errorMessage") || (depth0 != null ? lookupProperty(depth0, "errorMessage") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
             "name": "errorMessage",
             "hash": {},
             "data": data,
@@ -12465,10 +12482,12 @@ var _profileTmplHbsDefault = parcelHelpers.interopDefault(_profileTmplHbs);
 var _styleCss = require("./style.css");
 var _inputTextProfile = require("../../components/InputTextProfile/InputTextProfile");
 var _inputTextProfileDefault = parcelHelpers.interopDefault(_inputTextProfile);
+var _button = require("../../components/Button/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
 function Profile() {
-    const onGoBack = ()=>{
-    // window.location.pathname='/chatList'
-    };
+    let editData = false;
+    let editPasw = true;
+    let viewData = false;
     //profile data in component
     const inputsList = [
         {
@@ -12477,7 +12496,8 @@ function Profile() {
             type: "text",
             label: "\u041F\u043E\u0447\u0442\u0430",
             placeholder: "pochta@yandex.ru",
-            errorMessage: ""
+            errorMessage: "",
+            disabled: true
         },
         {
             id: "login",
@@ -12493,7 +12513,8 @@ function Profile() {
             type: "text",
             label: "\u0418\u043C\u044F",
             placeholder: "Ivan",
-            errorMessage: ""
+            errorMessage: "",
+            disabled: true
         },
         {
             id: "second_name",
@@ -12501,7 +12522,8 @@ function Profile() {
             type: "text",
             label: "\u0424\u0430\u043C\u0438\u043B\u0438\u044F",
             placeholder: "Ivanov",
-            errorMessage: ""
+            errorMessage: "",
+            disabled: true
         },
         {
             id: "display_name",
@@ -12509,7 +12531,8 @@ function Profile() {
             type: "text",
             label: "\u0418\u043C\u044F \u0432 \u0447\u0430\u0442\u0435",
             placeholder: "vanya",
-            errorMessage: ""
+            errorMessage: "",
+            disabled: true
         },
         {
             id: "phone",
@@ -12517,41 +12540,85 @@ function Profile() {
             label: "\u041F\u043E\u0447\u0442\u0430",
             type: "text",
             placeholder: "+79659959598",
-            errorMessage: ""
+            errorMessage: "",
+            disabled: true
         }, 
     ];
-    const inputs = inputsList.map((item)=>{
-        return (0, _inputTextProfileDefault.default)(item.id, item.name, item.label, item.type, item.placeholder, item.errorMessage);
-    });
+    const inputsListPassword = [
+        {
+            id: "password",
+            name: "password",
+            type: "password",
+            label: "\u041F\u0430\u0440\u043E\u043B\u044C",
+            placeholder: "\u041F\u0430\u0440\u043E\u043B\u044C",
+            errorMessage: "",
+            disabled: false
+        },
+        {
+            id: "password",
+            name: "password",
+            type: "password",
+            label: "\u041F\u0430\u0440\u043E\u043B\u044C",
+            placeholder: "\u041F\u0430\u0440\u043E\u043B\u044C",
+            errorMessage: "",
+            disabled: false
+        }, 
+    ];
     //btn in profile
     const btnList = [
         {
             id: "changePassw",
             text: "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C",
-            classNames: "buttonLink"
+            classNames: "buttonLink",
+            onClick: onChangePasswClick
         },
         {
             id: "changeData",
             text: "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0434\u0430\u043D\u043D\u044B\u0435",
-            classNames: "buttonLink"
+            classNames: "buttonLink",
+            onClick: onChangeDataClick
         },
         {
             id: "out",
             text: "\u0412\u044B\u0439\u0442\u0438",
-            classNames: "buttonLink buttonLink_red"
+            classNames: "buttonLink buttonLink_red",
+            onClick: onOut
         }, 
     ];
-    const content = (0, _profileTmplHbsDefault.default)({
-        func: onGoBack(),
+    console.log(onChangeDataClick.toString());
+    function onChangeDataClick(e) {
+        editData = true;
+        viewData = false;
+        inputsList.forEach((item)=>item.disabled = false);
+    }
+    function onChangePasswClick(e) {
+        editPasw = true;
+        viewData = false;
+    }
+    function onOut() {
+    // window.location.pathname = '/'
+    }
+    const inputs = inputsList.map((item)=>{
+        return (0, _inputTextProfileDefault.default)(item.id, item.name, item.label, item.type, item.placeholder, item.errorMessage, item.disabled);
+    });
+    const inputsPassw = inputsListPassword.map((item)=>{
+        return (0, _inputTextProfileDefault.default)(item.id, item.name, item.label, item.type, item.placeholder, item.errorMessage, item.disabled);
+    });
+    let content = (0, _profileTmplHbsDefault.default)({
+        editPasw,
+        editData,
+        viewData,
         inputs,
+        inputsPassw,
         btnList,
+        btnSave: (0, _buttonDefault.default)("\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C", "button_primary"),
         name: "\u0418\u0432\u0430\u043D"
     });
     return content;
 }
 exports.default = Profile;
 
-},{"./Profile.tmpl.hbs":"f1tEp","@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh","./style.css":"4Zrtt","../../components/InputTextProfile/InputTextProfile":"dt8fL"}],"f1tEp":[function(require,module,exports) {
+},{"./Profile.tmpl.hbs":"f1tEp","./style.css":"4Zrtt","../../components/InputTextProfile/InputTextProfile":"dt8fL","@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh","../../components/Button/Button":"4120M"}],"f1tEp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -12559,14 +12626,28 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const templateFunction = (0, _handlebarsDefault.default).template({
     "1": function(container, depth0, helpers, partials, data) {
         var stack1;
-        return '                <li class="profile__fieldsItem">' + ((stack1 = container.lambda(depth0, depth0)) != null ? stack1 : "") + "</li>\n";
+        return '                    <li class="profile__fieldsItem">' + ((stack1 = container.lambda(depth0, depth0)) != null ? stack1 : "") + "</li>\n";
     },
     "3": function(container, depth0, helpers, partials, data) {
         var alias1 = container.lambda, alias2 = container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
             if (Object.prototype.hasOwnProperty.call(parent, propertyName)) return parent[propertyName];
             return undefined;
         };
-        return '                <li class="profile__fieldsItem"><span class=" ' + alias2(alias1(depth0 != null ? lookupProperty(depth0, "classNames") : depth0, depth0)) + '">' + alias2(alias1(depth0 != null ? lookupProperty(depth0, "text") : depth0, depth0)) + "</span></li>\n";
+        return '                    <li class="profile__fieldsItem"><span class=" ' + alias2(alias1(depth0 != null ? lookupProperty(depth0, "classNames") : depth0, depth0)) + '" onclick="' + alias2((lookupProperty(helpers, "stringifyFunc") || depth0 && lookupProperty(depth0, "stringifyFunc") || container.hooks.helperMissing).call(depth0 != null ? depth0 : container.nullContext || {}, depth0 != null ? lookupProperty(depth0, "onClick") : depth0, {
+            "name": "stringifyFunc",
+            "hash": {},
+            "data": data,
+            "loc": {
+                "start": {
+                    "line": 23,
+                    "column": 96
+                },
+                "end": {
+                    "line": 23,
+                    "column": 126
+                }
+            }
+        })) + '">' + alias2(alias1(depth0 != null ? lookupProperty(depth0, "text") : depth0, depth0)) + "</span></li>\n";
     },
     "compiler": [
         8,
@@ -12591,7 +12672,7 @@ const templateFunction = (0, _handlebarsDefault.default).template({
                     "column": 43
                 }
             }
-        }) : helper)) + '</h1>\n        <ul class="profile__fields">\n' + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "inputs") : depth0, {
+        }) : helper)) + '</h1>\n\n            <ul class="profile__fields">\n' + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "inputs") : depth0, {
             "name": "each",
             "hash": {},
             "fn": container.program(1, data, 0),
@@ -12599,15 +12680,15 @@ const templateFunction = (0, _handlebarsDefault.default).template({
             "data": data,
             "loc": {
                 "start": {
-                    "line": 15,
-                    "column": 12
+                    "line": 16,
+                    "column": 16
                 },
                 "end": {
-                    "line": 17,
-                    "column": 21
+                    "line": 18,
+                    "column": 25
                 }
             }
-        })) != null ? stack1 : "") + '        </ul>\n        <ul class="profile__btnBlock">\n' + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "btnList") : depth0, {
+        })) != null ? stack1 : "") + '            </ul>\n            <ul class="profile__btnBlock">\n\n' + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "btnList") : depth0, {
             "name": "each",
             "hash": {},
             "fn": container.program(3, data, 0),
@@ -12615,15 +12696,15 @@ const templateFunction = (0, _handlebarsDefault.default).template({
             "data": data,
             "loc": {
                 "start": {
-                    "line": 20,
-                    "column": 12
+                    "line": 22,
+                    "column": 16
                 },
                 "end": {
-                    "line": 22,
-                    "column": 21
+                    "line": 24,
+                    "column": 25
                 }
             }
-        })) != null ? stack1 : "") + "        </ul>\n    </section>\n</main>\n";
+        })) != null ? stack1 : "") + "            </ul>\n\n\n\n    </section>\n</main>\n";
     },
     "useData": true
 });
@@ -12637,25 +12718,16 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 var _inputTextProfileHbs = require("./InputTextProfile.hbs");
 var _inputTextProfileHbsDefault = parcelHelpers.interopDefault(_inputTextProfileHbs);
 var _styleCss = require("./style.css");
-exports.default = function(id, name, label, type, placeholder, errorMessage) {
+exports.default = function(id, name, label, type, placeholder, errorMessage, disabled) {
     const input = (0, _inputTextProfileHbsDefault.default)({
         id,
         name,
         label,
         type,
         placeholder,
-        errorMessage
+        errorMessage,
+        disabled
     });
-    // const inputEl = window.querySelector(`#${id}`)
-    //   const inputLabel = inputEl.previousSibling
-    //
-    //   console.log(inputEl, inputLabel)
-    //
-    //   inputEl.addEventListener('input', function (event){
-    //       if(event.target.focused) {
-    //           inputLabel.classList.add('visible')
-    //       } else {inputLabel.classList.remove('visible')}
-    //   })
     return input;
 };
 
@@ -12793,7 +12865,21 @@ const templateFunction = (0, _handlebarsDefault.default).template({
                     "column": 61
                 }
             }
-        }) : helper)) + '" />\n    </div>\n' + ((stack1 = lookupProperty(helpers, "if").call(alias1, depth0 != null ? lookupProperty(depth0, "eroorMessage") : depth0, {
+        }) : helper)) + '" disabled=' + alias4((helper = (helper = lookupProperty(helpers, "disabled") || (depth0 != null ? lookupProperty(depth0, "disabled") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+            "name": "disabled",
+            "hash": {},
+            "data": data,
+            "loc": {
+                "start": {
+                    "line": 5,
+                    "column": 72
+                },
+                "end": {
+                    "line": 5,
+                    "column": 84
+                }
+            }
+        }) : helper)) + "/>\n    </div>\n" + ((stack1 = lookupProperty(helpers, "if").call(alias1, depth0 != null ? lookupProperty(depth0, "eroorMessage") : depth0, {
             "name": "if",
             "hash": {},
             "fn": container.program(1, data, 0),
@@ -13082,7 +13168,7 @@ function ChatList() {
 }
 exports.default = ChatList;
 
-},{"./style.css":"95BIr","./ChatList.hbs":"lrgVW","../../components/Message/Message":"c5vJE","@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh","../../components/ChatItem/ChatItem":"kyUi6"}],"95BIr":[function() {},{}],"lrgVW":[function(require,module,exports) {
+},{"./style.css":"95BIr","./ChatList.hbs":"lrgVW","../../components/Message/Message":"c5vJE","../../components/ChatItem/ChatItem":"kyUi6","@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}],"95BIr":[function() {},{}],"lrgVW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");

@@ -11,15 +11,20 @@
 <!--            <image class="profile__img" href="#" alt="avatar"></image>-->
 <!--        </div>-->
         <h1 class="profile__title">{{name}}</h1>
-        <ul class="profile__fields">
-            {{#each inputs}}
-                <li class="profile__fieldsItem">{{{this}}}</li>
-            {{/each}}
-        </ul>
-        <ul class="profile__btnBlock">
-            {{#each btnList}}
-                <li class="profile__fieldsItem"><span class=" {{this.classNames}}">{{this.text}}</span></li>
-            {{/each}}
-        </ul>
+
+            <ul class="profile__fields">
+                {{#each inputs}}
+                    <li class="profile__fieldsItem">{{{this}}}</li>
+                {{/each}}
+            </ul>
+            <ul class="profile__btnBlock">
+
+                {{#each btnList}}
+                    <li class="profile__fieldsItem"><span class=" {{this.classNames}}" onclick="{{stringifyFunc this.onClick}}">{{this.text}}</span></li>
+                {{/each}}
+            </ul>
+
+
+
     </section>
 </main>
