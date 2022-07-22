@@ -6,7 +6,7 @@ const Handlebars = require('handlebars')
 const app = express();
 const PORT = 3000;
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname,'/build')));
 
 
 app.listen(PORT, function () {
