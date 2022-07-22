@@ -6,7 +6,8 @@
   "source": "index.html",
   "scripts": {
     "dev": "parcel index.html -p 3000  --target default --dist-dir ./build",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "start": "node ./server.js"
   },
   "targets": {
     "default": {
@@ -21,12 +22,12 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "express": "^4.18.1",
+    "handlebars": "^4.7.7",
     "parcel": "^2.6.2",
-    "parcel-transformer-hbs": "^1.0.4",
-    "handlebars": "^4.7.7"
+    "parcel-transformer-hbs": "^1.0.4"
   },
   "dependencies": {
-
     "handlebars": "^4.7.7"
   }
 }

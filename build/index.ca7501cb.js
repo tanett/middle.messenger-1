@@ -12577,17 +12577,17 @@ const templateFunction = (0, _handlebarsDefault.default).template({
             if (Object.prototype.hasOwnProperty.call(parent, propertyName)) return parent[propertyName];
             return undefined;
         };
-        return '<main class="profile">\n    <section class="profile__goBack">\n        <a class="profile__goBackBtn" href="/"></a>\n    </section>\n    <section class="profile__container">\n        <div class="avatar profile__avatar">\n<!--            <image class="profile__img" href="#" alt="avatar"></image>-->\n        </div>\n        <h1 class="profile__title">' + container.escapeExpression((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : container.hooks.helperMissing, typeof helper === "function" ? helper.call(alias1, {
+        return '<main class="profile">\n    <section class="profile__goBack">\n        <a class="profile__goBackBtn" href="/"></a>\n    </section>\n    <section class="profile__container">\n<!--        <div class="avatar profile__avatar">-->\n            <label for="avatar" class="avatar profile__avatar">\n                <input type="file" id="avatar" name="avatar" hidden/>\n            </label>\n\n<!--            <image class="profile__img" href="#" alt="avatar"></image>-->\n<!--        </div>-->\n        <h1 class="profile__title">' + container.escapeExpression((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : container.hooks.helperMissing, typeof helper === "function" ? helper.call(alias1, {
             "name": "name",
             "hash": {},
             "data": data,
             "loc": {
                 "start": {
-                    "line": 9,
+                    "line": 13,
                     "column": 35
                 },
                 "end": {
-                    "line": 9,
+                    "line": 13,
                     "column": 43
                 }
             }
@@ -12599,11 +12599,11 @@ const templateFunction = (0, _handlebarsDefault.default).template({
             "data": data,
             "loc": {
                 "start": {
-                    "line": 11,
+                    "line": 15,
                     "column": 12
                 },
                 "end": {
-                    "line": 13,
+                    "line": 17,
                     "column": 21
                 }
             }
@@ -12615,11 +12615,11 @@ const templateFunction = (0, _handlebarsDefault.default).template({
             "data": data,
             "loc": {
                 "start": {
-                    "line": 16,
+                    "line": 20,
                     "column": 12
                 },
                 "end": {
-                    "line": 18,
+                    "line": 22,
                     "column": 21
                 }
             }
