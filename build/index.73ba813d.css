@@ -1,0 +1,78 @@
+.W9GDhq_signIn_container {
+  height: 80vh;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 50px 30px 30px;
+  display: flex;
+  box-shadow: 0 0 6px #00000024;
+}
+
+.W9GDhq_signIn_title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.button_primary {
+  color: #fff;
+  background: #3369f3;
+}
+
+.button_primary a.link {
+  color: #fff;
+  padding: 12px;
+  display: block;
+}
+
+.inputBlock {
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 7px;
+  display: flex;
+}
+
+.inputBlock_label {
+  color: #999;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9px;
+}
+
+.inputBlock_input {
+  color: #1e1e1e;
+  border: none;
+  border-bottom: 1px solid #3369f3;
+  padding-bottom: 7px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+  background-color: #0000 !important;
+}
+
+.inputBlock_input:focus, .inputBlock_input:active, .inputBlock_input:focus-visible {
+  outline: none;
+  background-color: #0000 !important;
+}
+
+.inputBlock_input::placeholder {
+  color: #999;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+}
+
+.inputBlock_message {
+  color: #ff2f2f;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 8px;
+}
+
