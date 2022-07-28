@@ -8,6 +8,7 @@
     color: #3369F3;
     text-align: left;
     background: transparent;
+
 }
 .buttonLink:hover, .buttonLink:active, .buttonLink:focus {
     opacity: 80%;
@@ -17,3 +18,9 @@
     color: #FF0000;
 }
 
+.buttonLink_center{
+    font-size: 11px;
+    line-height: 11px;
+   text-align: center;
+
+}

@@ -8,6 +8,8 @@
     line-height: 13px;
     border: none;
     cursor: pointer;
+    padding: 12px;
+
 }
 .button:hover, .button:active, .button:focus {
     opacity: 80%;
@@ -19,9 +21,4 @@
     background: #3369F3;
     color: #FFFFFF;
 }
-.button_primary a.link{
-    display: block;
-    color: #FFFFFF;
-    padding: 12px;
 
-}

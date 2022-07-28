@@ -1,15 +1,11 @@
 <main class="profile">
     <section class="profile__goBack">
-        <a class="profile__goBackBtn" href="/"></a>
+        <a class="profile__goBackBtn" href="/chatList.html"></a>
     </section>
     <section class="profile__container">
-<!--        <div class="avatar profile__avatar">-->
             <label for="avatar" class="avatar profile__avatar">
                 <input type="file" id="avatar" name="avatar" hidden/>
             </label>
-
-<!--            <image class="profile__img" href="#" alt="avatar"></image>-->
-<!--        </div>-->
         <h1 class="profile__title">{{name}}</h1>
 
             <ul class="profile__fields">
@@ -20,7 +16,7 @@
             <ul class="profile__btnBlock">
 
                 {{#each btnList}}
-                    <li class="profile__fieldsItem"><span class=" {{this.classNames}}" onclick="{{stringifyFunc this.onClick}}">{{this.text}}</span></li>
+                    <li class="profile__fieldsItem"><span id={{this.id}} class=" {{this.classNames}}" >{{this.text}}</span></li>
                 {{/each}}
             </ul>
 

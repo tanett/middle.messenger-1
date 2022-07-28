@@ -1,30 +1,21 @@
 
-import './style.css'
-import SignInTmpl from './signIn.hbs'
-import Button from '../../components/Button/Button';
-import Fieldset from '../../components/Fieldset/Fieldset';
+import SignIn from '../../modules/signIn/signIn';
 
 
+const SignInPage= () => {
 
-export default function SignIn() {
+    const  component = SignIn()
 
-const onSubmit =()=>{
-    window.location.pathname='/chatList'
+
+    return component
 }
 
-//inputs in component
-const inputList = [
-    {id:'login', name:'login', label:'Логин', type:'text', placeholder:'Логин', errorMessage:'error'},
-    {id:'password', name:'password', label:'Пароль', type:'password', placeholder:'Пароль', errorMessage:''},
-]
+document.querySelector('#root').innerHTML = SignInPage();
 
+const formSignIn = document.querySelector('#signInForm')
 
-    const content = SignInTmpl({ func: onSubmit ,
-        btnPr: Button("Войти", "button_primary"),
-        fieldset: Fieldset(inputList, "signIn_fieldset")
-    })
+formSignIn.addEventListener('submit', (e)=>{e.preventDefault(); window.location.pathname = "/chatList.html"})
 
-    return content
-}
+const linkBtn = document.querySelector('#linkToSignUp')
 
-
+linkBtn.addEventListener('click', (e)=>{e.preventDefault(); window.location.pathname = "/signUp.html"})

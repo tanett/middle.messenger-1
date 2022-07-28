@@ -14,7 +14,7 @@ export default function NotFoundPage() {
     return NotFoundTmpl({error: ErrorPage(
              '404',
              'Не туда попали',
-            '/chatList',
+            './chatList.html',
              'Назад к чатам'
 
         )})

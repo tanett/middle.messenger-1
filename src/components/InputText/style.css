@@ -4,7 +4,7 @@
     gap: 7px;
 }
 
-.inputBlock_label{
+.inputBlock__label{
     font-style: normal;
     font-weight: 500;
     font-size: 9px;
@@ -14,7 +14,7 @@
 }
 
 
-.inputBlock_input {
+.inputBlock__input {
     border: none;
     border-bottom: 1px solid #3369F3;
     font-style: normal;
@@ -27,12 +27,12 @@
 
 
 }
-.inputBlock_input:focus, .inputBlock_input:active,.inputBlock_input:focus-visible {
+.inputBlock__input:focus, .inputBlock__input:active,.inputBlock__input:focus-visible {
     outline: none;
 
     background-color: transparent  !important;
 }
-.inputBlock_input::placeholder {
+.inputBlock__input::placeholder {
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -40,7 +40,7 @@
     color: #999999;
 }
 
-.inputBlock_message {
+.inputBlock__message {
 
     font-style: normal;
     font-weight: 400;

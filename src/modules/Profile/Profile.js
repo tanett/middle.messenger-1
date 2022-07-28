@@ -108,10 +108,10 @@ export default function Profile() {
             id: 'out',
             text: 'Выйти',
             classNames: 'buttonLink buttonLink_red',
-            onClick: onOut
+
         },
     ]
-    console.log(onChangeDataClick.toString())
+
 
     function onChangeDataClick(e) {
         editData = true
@@ -125,9 +125,6 @@ viewData=false
 
     }
 
-    function onOut() {
-       // window.location.pathname = '/'
-    }
 
     const inputs = inputsList.map(item => {
         return InputTextProfile(item.id, item.name, item.label, item.type, item.placeholder, item.errorMessage, item.disabled)
